@@ -1,0 +1,73 @@
+:root {
+    --blue: #4886FF;
+    --aqua: #43D8C9;
+    --whitePeach: #F5F5F5;
+    --fontColor: #333333;
+    --lightRed: #FF688B;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+body {
+    background: var(--blue);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#container {
+    height: 70vh;
+    width: 60vw;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--whitePeach);
+    color: var(--fColor);
+    border-radius: 10px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+
+    /* nesting */
+    #header {
+        word-spacing: 0.4em;
+        letter-spacing: 0.2em;
+        margin: 50px 0;
+        padding-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .input {
+        padding: 15px;
+        width: 500px;
+        border: 1.8px solid var(--aqua);
+        border-radius: 4px;
+    }
+
+    #todoInput:focus {
+        border: 1.8px solid var(--aqua);
+    }
+
+    #submitButton {
+        width: 75px;
+    }
+
+    #paragError {
+        visibility: hidden;
+        margin: 20px;
+        text-align: center;
+        font-size: 18px;
+        color: var(--lightRed);
+    }
+
+    .error {
+        padding: 15px;
+        width: 500px;
+        border: 1.8px solid var(--lightRed);
+        border-radius: 4px;
+    }
+}
