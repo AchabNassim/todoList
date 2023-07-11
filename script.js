@@ -4,6 +4,7 @@ const ul = document.getElementById("list");
 const submitButton = document.getElementById("submitButton");
 const inputField = document.getElementById("todoInput");
 const paragError = document.getElementById("paragError");
+const deleteButton = document.getElementById("deleteButton");
 let update = false;
 
 function displayError(errorMessage) {
@@ -22,25 +23,46 @@ function createLiElement(text) {
     const li = document.createElement("li");
     const update = document.createElement("a");
     const del = document.createElement("a");
+    const checkmark = document.createElement("a");
     update.href = "#";
     update.className = "fa-solid fa-square-pen";
     del.href = "#";
     del.className = "fa-solid fa-trash";
     li.className = "listElement";
+    checkmark.href = "#";
+    checkmark.className = "fa-solid fa-square-check";
     li.textContent = text;
     li.appendChild(update);
     li.appendChild(del);
+    li.appendChild(checkmark);
     return (li);
+}
+
+function checkTask (e) {
+    let node;
+    if (e.target.classList.contains('fa-square-check')) {
+        if (update == true) {
+            inputField.focus();
+            displayError("Please finish modifying first before proceeding!");
+            return ;
+        }
+        node = e.target.parentElement;
+        console.log(node);
+        if (node.classList.contains("checked"))
+            node.classList.remove("checked");
+        else
+            node.classList.add("checked");
+    }
 }
 
 function modify (e) {
     let node;
-    if (update == true)
-    {
-        displayError("Please finish modifying first before proceeding!");
-        return ;
-    }
     if (e.target.classList.contains('fa-square-pen')) {
+        if (update == true) {
+            inputField.focus();
+            displayError("Please finish modifying first before proceeding!");
+            return ;
+        }
         node = e.target.parentElement;
         update = true;
         node.classList.add("liUpdate");
@@ -53,9 +75,22 @@ function modify (e) {
 function deleleteLi(e) {
     let node;
     if (e.target.classList.contains('fa-trash')) {
+        if (update == true) {
+            inputField.focus();
+            displayError("Please finish modifying first before proceeding!");
+            return ;
+        }
         node = e.target.parentElement;
         node.remove();
     }
+}
+
+function deleteAll()
+{
+    setTimeout(() => {
+        while (ul.firstChild)
+            ul.firstChild.remove();
+    }, 150);
 }
 
 function processInput(e) {
@@ -81,3 +116,5 @@ function processInput(e) {
 submitButton.addEventListener("click", processInput);
 ul.addEventListener("click", modify);
 ul.addEventListener("click", deleleteLi);
+ul.addEventListener("click", checkTask);
+deleteButton.addEventListener("click", deleteAll);

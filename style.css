@@ -16,8 +16,8 @@
 
 body {
     background: var(--blue);
-    min-height: 100vh;
-    overflow: hidden;
+    min-height: 80vh;
+    overflow: auto;
 }
 
 #mainContainer {
@@ -36,7 +36,7 @@ body {
     text-align: center;
 
     /* nesting */
-    
+
     #header {
         word-spacing: 0.4em;
         letter-spacing: 0.2em;
@@ -57,7 +57,7 @@ body {
         width: 60%;
         border: 1.8px solid var(--warmYellow);
         border-radius: 4px;
-        font-size: 17px;
+        font-size: 18px;
     }
     
     #submitButton {
@@ -84,7 +84,7 @@ body {
     }
 
     .listContainer {
-        width: 70%;
+        width: 65%;
         margin: 10px 0 50px 0px;
     }
 
@@ -92,8 +92,8 @@ body {
         position: relative;
         text-align: start;
         width: 100%;
-        margin: 10px 0px 40px 0px;
-        font-size: 18px;
+        margin: 40px 0px 30px 0px;
+        font-size: 19px;
         /* letter-spacing: 0.1rem; */
         list-style-type: none;
         list-style-position: inside;
@@ -107,23 +107,28 @@ body {
     }
 
     .fa-solid {
-        font-size: 19px;
+        font-size: 20px;
         color: var(--blue);
         position: absolute;
-        top: 40%;
-        transform: translateY(-40%);
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .fa-square-pen {
         right: 0;
-        margin-right: 25px;
+        margin-right: 30px;
+    }
+    
+    .fa-square-check {
+        right: 30px;
+        margin-right: 30px;
     }
 
     .fa-trash {
         right: 0;
-        margin-left: 25px;
+        margin-left: 30px;
     }
-    
+
     .fa-solid:hover {
         color: var(--lightRed);
     }
@@ -133,7 +138,32 @@ body {
         width: 60%;
         border: 1.8px solid var(--lightRed);
         border-radius: 4px;
-        font-size: 17px;
+        font-size: 18px;
+    }
+
+    .checked {
+        text-decoration: line-through;
+        text-decoration-color: var(--lightRed);
+    }
+
+    .listElement.checked a {
+        text-decoration: none;
+    }
+
+    #deleteButton {
+        transition: 0.2s;
+        color: var(--fontColor);
+        border: 1.8px var(--warmYellow) solid;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 40px;
+        padding: 15px;
+    }
+
+    #deleteButton:hover {
+        color: var(--whitePeach);
+        border: 1.8px var(--lightRed) solid;
+        background-color: var(--lightRed);
     }
 }
 
