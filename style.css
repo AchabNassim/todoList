@@ -102,12 +102,21 @@ body {
         word-break: break-all;
     }
     
+    .listElement::before {
+        font-size: 15px;
+        font-family: "Font Awesome 5 Free";
+        content: "\f061";
+        font-weight: 900;
+        margin-right: 10px;
+        color: var(--aqua);
+    }
+
     .liUpdate {
         border-bottom: solid 2px var(--lightRed);
     }
 
     .fa-solid {
-        font-size: 20px;
+        font-size: 21px;
         color: var(--blue);
         position: absolute;
         top: 50%;

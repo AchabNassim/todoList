@@ -113,8 +113,12 @@ function processInput(e) {
     }
 }
 
-submitButton.addEventListener("click", processInput);
-ul.addEventListener("click", modify);
-ul.addEventListener("click", deleleteLi);
-ul.addEventListener("click", checkTask);
-deleteButton.addEventListener("click", deleteAll);
+function loadEvents() {
+    submitButton.addEventListener("click", processInput);
+    ul.addEventListener("click", modify);
+    ul.addEventListener("click", deleleteLi);
+    ul.addEventListener("click", checkTask);
+    deleteButton.addEventListener("click", deleteAll);
+}
+
+loadEvents();
