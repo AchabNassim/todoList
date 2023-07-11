@@ -1,5 +1,6 @@
 :root {
     --blue: #4886FF;
+    --warmYellow: #FFB800;
     --aqua: #43D8C9;
     --whitePeach: #F5F5F5;
     --fontColor: #333333;
@@ -19,41 +20,59 @@ body {
     overflow: hidden;
 }
 
-#container {
-    height: 70vh;
+#mainContainer {
+    /* height: 70vh; */
     width: 60vw;
     margin: 100px auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     background-color: var(--whitePeach);
     color: var(--fColor);
     border-radius: 10px;
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 15px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
 
     /* nesting */
+    
     #header {
         word-spacing: 0.4em;
         letter-spacing: 0.2em;
         margin: 50px 0;
         padding-bottom: 20px;
         font-size: 28px;
+        text-decoration: underline;
+        text-decoration-color: var(--warmYellow);
+        text-underline-offset: 0.35em;
+    }
+
+    #formContainer {
+        width: 95%;
     }
 
     .input {
         padding: 15px;
-        width: 500px;
-        border: 1.8px solid var(--aqua);
+        width: 60%;
+        border: 1.8px solid var(--warmYellow);
         border-radius: 4px;
+        font-size: 17px;
     }
-
-    #todoInput:focus {
-        border: 1.8px solid var(--aqua);
-    }
-
+    
     #submitButton {
-        width: 75px;
+        transition: 0.2s;
+        width: 100px;
+    }
+    
+    #todoInput:focus {
+        outline: none;
+    }
+    
+    #submitButton:hover {
+        transition-timing-function: linear;
+        background-color: var(--warmYellow);
+        color: var(--whitePeach);
     }
 
     #paragError {
@@ -64,10 +83,61 @@ body {
         color: var(--lightRed);
     }
 
+    .listContainer {
+        width: 70%;
+        margin: 10px 0 50px 0px;
+    }
+
+    .listElement {
+        position: relative;
+        text-align: start;
+        width: 100%;
+        margin: 10px 0px 40px 0px;
+        font-size: 18px;
+        /* letter-spacing: 0.1rem; */
+        list-style-type: none;
+        list-style-position: inside;
+        padding-bottom: 15px;
+        border-bottom: solid 2.1px var(--aqua);
+        word-break: break-all;
+    }
+    
+    .liUpdate {
+        border-bottom: solid 2px var(--lightRed);
+    }
+
+    .fa-solid {
+        font-size: 19px;
+        color: var(--blue);
+        position: absolute;
+        top: 40%;
+        transform: translateY(-40%);
+    }
+
+    .fa-square-pen {
+        right: 0;
+        margin-right: 25px;
+    }
+
+    .fa-trash {
+        right: 0;
+        margin-left: 25px;
+    }
+    
+    .fa-solid:hover {
+        color: var(--lightRed);
+    }
+
     .error {
         padding: 15px;
-        width: 500px;
+        width: 60%;
         border: 1.8px solid var(--lightRed);
         border-radius: 4px;
+        font-size: 17px;
     }
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
