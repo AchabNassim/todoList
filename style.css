@@ -155,11 +155,9 @@ body {
     }
 
     .listElement.checked::before {
+        color: red;
+        content: "\f00c";
         color: var(--aqua);
-    }
-
-    .listElement.checked a {
-        text-decoration: none;
     }
 
     #deleteButton {
@@ -174,6 +172,7 @@ body {
 
     #deleteButton:hover {
         color: var(--whitePeach);
+        transition-timing-function: linear;
         border: 1.8px var(--lightRed) solid;
         background-color: var(--lightRed);
     }
