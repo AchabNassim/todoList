@@ -3,19 +3,19 @@
 const ul = document.getElementById("list");
 const submitButton = document.getElementById("submitButton");
 const inputField = document.getElementById("todoInput");
-const paragError = document.getElementById("paragError");
+const parag = document.querySelector(".parag");
 const deleteButton = document.getElementById("deleteButton");
 let update = false;
 
 function displayError(errorMessage) {
-    paragError.textContent = errorMessage;
+    parag.textContent = errorMessage;
     submitButton.className = "error";
     inputField.className = "error";
-    paragError.style.visibility = "visible";
-    setTimeout(function() {
+    parag.classList.add("paragError");
+    setTimeout(() => {
         inputField.className = "input";
         submitButton.className = "input";
-        paragError.style.visibility = "hidden";
+        parag.classList.remove("paragError");
     }, 2000);
 }
 

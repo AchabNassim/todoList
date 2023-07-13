@@ -5,6 +5,7 @@
     --whitePeach: #F5F5F5;
     --fontColor: #333333;
     --lightRed: #FF688B;
+    --emerald: #50C878;
 }
 
 * {
@@ -30,7 +31,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: var(--whitePeach);
-    color: var(--fColor);
+    color: var(--fontColor);
     border-radius: 10px;
     box-shadow: 1px 15px 15px rgba(0, 0, 0, 0.4);
     text-align: center;
@@ -75,11 +76,15 @@ body {
         color: var(--whitePeach);
     }
 
-    #paragError {
+    .parag {
         visibility: hidden;
         margin: 20px;
         text-align: center;
         font-size: 18px;
+    }
+
+    .paragError {
+        visibility: visible;
         color: var(--lightRed);
     }
 
