@@ -87,6 +87,10 @@ function deleleteLi(e) {
 
 function deleteAll()
 {
+    if (ul.firstChild === null) {
+        displayError("Tasklist is already empty!");
+        return ;
+    }
     setTimeout(() => {
         while (ul.firstChild)
             ul.firstChild.remove();
