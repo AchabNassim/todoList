@@ -149,7 +149,8 @@ function processInput(e) {
     }
 }
 
-function loadEvents() {
+function load() {
+    retrieveLocalStorage();
     submitButton.addEventListener("click", processInput);
     ul.addEventListener("click", modify);
     ul.addEventListener("click", deleleteLi);
@@ -157,5 +158,4 @@ function loadEvents() {
     deleteButton.addEventListener("click", deleteAll);
 }
 
-retrieveLocalStorage();
 loadEvents();
