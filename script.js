@@ -1,4 +1,3 @@
-// const container = document.getElementById("container");
 let tasks = [];
 const ul = document.getElementById("list");
 const submitButton = document.getElementById("submitButton");
@@ -157,4 +156,4 @@ function load() {
     deleteButton.addEventListener("click", deleteAll);
 }
 
-loadEvents();
+load();
