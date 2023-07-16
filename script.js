@@ -1,4 +1,3 @@
-// const fragment = document.createDocumentFragment();
 // const container = document.getElementById("container");
 let tasks = [];
 const ul = document.getElementById("list");
