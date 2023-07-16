@@ -1,11 +1,40 @@
 // const fragment = document.createDocumentFragment();
 // const container = document.getElementById("container");
+let tasks = [];
 const ul = document.getElementById("list");
 const submitButton = document.getElementById("submitButton");
 const inputField = document.getElementById("todoInput");
 const parag = document.querySelector(".parag");
 const deleteButton = document.getElementById("deleteButton");
 let update = false;
+
+
+function retrieveLocalStorage() {
+    let parsedArray = JSON.parse(localStorage.getItem("tasks"));
+    let fragment = document.createDocumentFragment();
+    if (parsedArray === null) {
+        return ;
+    }
+    for (let i = 0; i < parsedArray.length; i++) {
+        fragment.appendChild(createLiElement(parsedArray[i]));
+    }
+    ul.appendChild(fragment);
+}
+
+function updateLocalStorage(task, mode, oldTask) {
+    if (mode === "add") {
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+    else if (mode === "modify") {
+        tasks[tasks.indexOf(oldTask)] = task;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+    else if (mode === "delete") {
+        tasks.splice(tasks.indexOf(task), 1);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+}
 
 function displayError(errorMessage) {
     parag.textContent = errorMessage;
@@ -47,7 +76,6 @@ function checkTask (e) {
             return ;
         }
         node = e.target.parentElement;
-        console.log(node);
         if (node.classList.contains("checked"))
             node.classList.remove("checked");
         else
@@ -81,6 +109,7 @@ function deleleteLi(e) {
             return ;
         }
         node = e.target.parentElement;
+        updateLocalStorage(node.innerText, "delete", null);
         node.remove();
     }
 }
@@ -95,6 +124,7 @@ function deleteAll()
         while (ul.firstChild)
             ul.firstChild.remove();
     }, 150);
+    localStorage.removeItem("tasks");
 }
 
 function processInput(e) {
@@ -107,11 +137,13 @@ function processInput(e) {
     }
     if (update === false) {
         ul.appendChild(createLiElement(inputValue));
+        updateLocalStorage(inputValue, "add", null);
     }
     else {
         update = false;
         submitButton.value = "save!";
         const element = document.querySelector(".liUpdate");
+        updateLocalStorage(inputValue, "modify", element.innerText);
         element.childNodes[0].textContent = inputValue;
         element.classList.remove("liUpdate");
     }
@@ -125,4 +157,5 @@ function loadEvents() {
     deleteButton.addEventListener("click", deleteAll);
 }
 
+retrieveLocalStorage();
 loadEvents();
