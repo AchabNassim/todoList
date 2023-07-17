@@ -136,6 +136,7 @@ function processInput(e) {
     if (update === false) {
         ul.appendChild(createLiElement(inputValue));
         updateLocalStorage(inputValue, "add", null);
+        // ul.firstChild.focus();
     }
     else {
         update = false;

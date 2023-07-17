@@ -60,7 +60,7 @@ body {
 }
 
 #submitButton {
-    transition: 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     width: 100px;
 }
 
@@ -69,20 +69,19 @@ body {
 }
 
 #submitButton:hover {
-    transition-timing-function: linear;
     background-color: var(--warmYellow);
     color: var(--whitePeach);
 }
 
 .parag {
-    visibility: hidden;
+    opacity: 0;
     margin: 20px;
     text-align: center;
     font-size: 1.4rem;
 }
 
 .paragError {
-    visibility: visible;
+    opacity: 1;
     color: var(--lightRed);
 }
 
@@ -124,6 +123,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    transition: color 0.2s;
 }
 
 .fa-square-pen {
@@ -164,7 +164,7 @@ body {
 }
 
 #deleteButton {
-    transition: 0.2s;
+    transition: color 0.2s, border 0.2s, background-color 0.2s;
     color: var(--fontColor);
     border: 1.8px var(--warmYellow) solid;
     border-radius: 4px;
@@ -175,7 +175,6 @@ body {
 
 #deleteButton:hover {
     color: var(--whitePeach);
-    transition-timing-function: linear;
     border: 1.8px var(--lightRed) solid;
     background-color: var(--lightRed);
 }
